@@ -4,7 +4,7 @@ const express = require("express");
 const userApiRouter=require('./src/routes/users.routes')
 const cors =require("cors");
 
-const notFound=require('./src/middleware/not-Found')
+const notFound=require('./src/middleware/not-found')
 const errorHandlerMiddleware=require('./src/middleware/error-handler')
 const {connectDB} = require('./src/db/connect')
 const bodyParser = require("body-parser");
