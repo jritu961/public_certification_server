@@ -69,7 +69,9 @@ const login = async(req , res, next) =>{
               email: user.email, // useful for frontend app
               // token: token
               token,
-              _id:user._id
+              _id:user._id,
+              roles:user.roles,
+              course:user.course
           },
       });
   });
