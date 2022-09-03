@@ -50,7 +50,8 @@ const login = async(req , res, next) =>{
       id: user._id,
       name: user.name,
       email: user.email,
-      roles:user.roles
+      roles:user.roles,
+      course:user.course
   };
   jwt.sign(claims, jwtKey
     
