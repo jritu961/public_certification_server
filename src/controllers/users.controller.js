@@ -52,9 +52,9 @@ const login = async(req , res, next) =>{
       course:user.course
   };
 
-  //generating token
-  jwt.sign(claims, jwtKey
-    
+  //generating token JWT_SECRET
+  // jwt.sign(claims, jwtKey
+  jwt.sign(claims, process.env.JWT_SECRET
     , function (error, token) {
       // some problem in generating JWT
       if (error) {
