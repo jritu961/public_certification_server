@@ -43,7 +43,8 @@ endDate:{
     
 },
 rollNumber:{
-    type:String
+    type:String,
+    default:""
 },
 course:{
    type:String
