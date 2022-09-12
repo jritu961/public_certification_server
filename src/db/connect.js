@@ -4,4 +4,4 @@ const connectDB = (url) => {
     return mongoose.connect(url); // here we are returning the promise
 };
 
-module.exports = { connectDB };
+module.exports =  {connectDB} ;

@@ -1,17 +1,15 @@
-const { createHttpError } = require('../errors/custom-error');
 
-const User = require("../models/User.js");
+const { createHttpError } = require('../errors/custom-error');
+//
 const {registerSvc,
   getUserByEmail,
   checkPassword,
-  // updateCertificateSvc,
   addCertificateSvc,
   deleteCertificateSvc,
   getCertificateSvc,
   getAllDetailsSvc}=require('../services/user.services')
 const jwt=require('jsonwebtoken');
-const { default: mongoose } = require('mongoose');
-const jwtKey='789456ritu123'
+
 
 
 const register = async(req , res, next) =>{
@@ -53,6 +51,8 @@ const login = async(req , res, next) =>{
       roles:user.roles,
       course:user.course
   };
+
+  //generating token
   jwt.sign(claims, jwtKey
     
     , function (error, token) {
@@ -78,36 +78,10 @@ const login = async(req , res, next) =>{
   });
   
   }
-//   const addCertificate = async(req , res, next) =>{
-    
-//     console.log( 'claims = ', res.locals.claims );
-//     const certificate = req.body;
-    
-//     try {
-//         let updatedCertificate = await addCertificateSvc( certificate );
-        
-//         res.status( 201 ).json({
-//             status: 'success',
-//             data: {updatedCertificate,
-//               _id: new mongoose.Types.ObjectId(),
-//               name: req.body.name,
-//                     course: req.body.course,
-//                     email: req.body.email,
-//                     rollNumber: req.body.rollNumber
-//             }  
-//         });
-//     } catch( error ) {
-//         const httpError = new HttpError( error.message, 400 );
 
-//         next( httpError );
-//     }
-    
-  
-// }
-  
   const addCertificate = async(req , res, next) =>{
          const details= req.body;
-         const email=req.params.email
+         const email=req.params.email;
         const updatedData=await addCertificateSvc(details,email)
         res.status(201).json({sucess:'certificate Updated',details:updatedData})
       
@@ -135,11 +109,5 @@ const userDetail = await deleteCertificateSvc(userId);
     res.status(201).json({sucess:'deleteCertificate',details:userDetail})
   
   }
-
-
-  
-  
-  
-
 
 module.exports= {register,login,getAllDetails,getCertificate,deleteCertificate,addCertificate};

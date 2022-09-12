@@ -1,5 +1,5 @@
-const jwt = require( 'jsonwebtoken' );
-
+const jwt = require( 'jsonwebtoken' );//
+//
 const authenticate = ( req, res, next ) => {
     const token = req.header( 'Authorization' );
     
@@ -16,7 +16,7 @@ const authenticate = ( req, res, next ) => {
         next();
     });
 };
-
+//
 const authorize = ( allowedRoles ) => { // when called, this returns the middleware
     return ( req, res, next ) => { // this is the actual middleware
         const { claims } = res.locals;

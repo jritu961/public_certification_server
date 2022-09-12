@@ -1,5 +1,4 @@
 const { createHttpError } = require('../errors/custom-error');
-const jwt = require('jsonwebtoken');
 const User = require('../models/User');
 
 
@@ -31,27 +30,7 @@ const checkPassword= async (user,plainTextPassword) =>{
     return isMatch;
 }
  
-// const addCertificateSvc= async (user) =>{
-    
-//     try {
-//         const insertedCertificate = await User.find(certificate);
-//         return insertedCertificate;
-//     } catch (error) {
-//         if (error.name === "ValidationError") {
-//             const dbError = new Error(`Validation error : ${error.message}`);
-//             dbError.type = "ValidationError";
-//             throw dbError;
-//         }
 
-//         if (error.name === "CastError") {
-//             const dbError = new Error(`Data type error : ${error.message}`);
-//             dbError.type = "CastError";
-//             throw dbError;
-//         }
-        
-//     }
-//     return user;
-// };
 
 const addCertificateSvc= async (details,email) =>{
         const updatedData=await User.findOneAndUpdate({email:email},details,{
@@ -64,8 +43,6 @@ const addCertificateSvc= async (details,email) =>{
        return updatedData;
     };
     
-
-
 const getAllDetailsSvc= async () =>{
    const allUser= await User.find({})
    if(!allUser){
@@ -97,9 +74,7 @@ module.exports={
     getUserByEmail,
     checkPassword,
     addCertificateSvc,
-    // updateCertificateSvc,
     getAllDetailsSvc,
     getCertificateSvc,
     deleteCertificateSvc
-
 }

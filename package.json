@@ -4,7 +4,7 @@
   "denpuscription": "",
   "main": "index.js",
   "scripts": {
-    "start":"nodeman index.js",
+    "start": "nodeman index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
