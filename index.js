@@ -9,7 +9,7 @@ const {connectDB} = require('./src/db/connect')
 const bodyParser = require("body-parser");
 const app = express();
 app.use(cors());
-//configuring body parser(accepts key value from request and parses)
+//configuring body parser middleware(accepts key value from request and parses)
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json());
 
